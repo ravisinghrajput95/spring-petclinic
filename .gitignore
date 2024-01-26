@@ -15,3 +15,9 @@ build/*
 _site/
 *.css
 !petclinic.css
+*/terraform.tfvars
+*/terraform.tfstate
+*/terraform.tfstate.backup
+*/.terraform
+*/.terraform.*
+*/mykey*
