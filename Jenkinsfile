@@ -18,8 +18,10 @@ node {
     
     stage('deploy to eks cluster') {
         script {
-            sh 'aws eks update-kubeconfig --name pet-clinic --region us-east-1'
-            sh "helm upgrade --install --set image.repository='rajputmarch2020:spring-petclinic' --set image.tag='${env.BUILD_NUMBER}' spring-petclinic-app spring-petclinic  "
+            dir('helm-charts/') {
+                sh 'aws eks update-kubeconfig --name pet-clinic --region us-east-1'
+                sh "helm upgrade --install --set image.repository='rajputmarch2020:spring-petclinic' --set image.tag='${env.BUILD_NUMBER}' spring-petclinic-app spring-petclinic/  "
+            }
         }
     }
 
