@@ -1,0 +1,24 @@
+# Default values for spring-petclinic.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: IMAGE_NAME
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: IMAGE_NAME
+
+service:
+  type: Loadbalancer
+  port: 8080
+
+resources: 
+  limits:
+    cpu: 40m
+    memory: 64Mi
+  requests:
+    cpu: 40m
+    memory: 64Mi
+
